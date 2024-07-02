@@ -8,15 +8,17 @@
 <p class="well"><%= @task.details %></p>
 
 <% if @task.completed %>
-  <i class="fa fa-check-square-o"></i> This task is completed
+  <i class="fa fa-check-square-o"></i>Tache faite !
 <% else %>
-  <i class="fa fa-square-o"></i> This task is not completed yet
+  <i class="fa fa-square-o"></i>Tache encore à faire
 <% end %>
 
 <hr>
-<%= link_to tasks_path do %>
+
+<%= link_to tasks_path, class: 'btn btn-secondary me-2' do %>
   <i class="fa fa-history"></i> Back to list
 <% end %>
-<%= link_to "Delete", task_path(@task),
-  data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %><i class="fa-solid fa-trash-can"></i>
+
+<%= link_to task_path(@task), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' do %>
+  <i class="fa-solid fa-trash-can"></i> Delete
+<% end %>
