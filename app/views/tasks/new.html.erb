@@ -1,0 +1,22 @@
+<h1 class="container-md rounded">New Task</h1>
+
+<%= form_with(model: @task, local: true) do |form| %>
+  <div class="m-1 w-100">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="m-1 w-100">
+    <%= form.label :details %>
+    <%= form.text_area :details %>
+  </div>
+  <div class="m-1">
+    <%= form.label :completed %>
+    <%= form.check_box :completed %>
+  </div>
+  <%= form.submit 'Create Task', class: 'btn btn-primary mb-3 mt-1' %>
+
+<% end %>
+
+<%= link_to tasks_path, class: 'btn btn-secondary mb-3' do %>
+  <i class="fa-solid fa-clock-rotate-left"></i> Back
+<% end %>
